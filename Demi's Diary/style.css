@@ -1,0 +1,236 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    display: flex;
+    height: 60px;
+    background-color: white;
+}
+.cadastro{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    width: 990px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    margin-top: 55px;
+}
+
+.imagemLogo{
+    width: 200px;
+}
+
+nav ul, nav li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul{
+    display: flex;
+}
+
+nav a{
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #000000;
+}
+
+nav .active a, nav a:hover{
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.menu{
+    display: flex;
+    align-items: center;
+}
+
+#banner{
+    background-image: url(img/container.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 677px;
+    display: flex;
+    justify-content: center;
+}
+
+.column{
+    flex-direction: column;
+    justify-content: flex-end;
+  
+}
+
+.textoPrincipal{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tituloHome{
+    color: #ffffff;
+    font-size: 50px;
+    text-shadow: 0px 1px 0px #555555;
+    margin: 0;
+    padding: 0;
+    max-width: 700px;
+}
+
+.subtituloHome{
+    color: #ffffff;
+    font-size: 21px;
+    text-shadow: 0px 1px 0px #010101;
+    margin: 0;
+    padding: 0;
+    max-width: 700px;
+    margin-top: 30px;
+}
+
+.cards{
+    height: 250px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cards a{
+    display: flex;
+    border: 1px solid #ffffff;
+    padding: 10px;
+    color: #ffffff;
+    margin-top: none;
+    font-size: 13px;
+    text-decoration: none;
+    width: 80px;
+}
+
+.card1, .card2, .card3{
+    color: #ffffff;
+    padding: 20px;
+}
+
+.card1{
+    background-color: #000000;
+}
+
+.card2{
+    background-color: #000000;
+} 
+
+.card3{
+    background-color: #000000;
+}
+
+.cardTitulo{
+    font-size: 21px;
+}
+
+.cardDescricao{
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    line-height: 25px;
+}
+
+.lugar1, .lugar2, .lugar3{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #828282;
+    margin-top: 15px;
+}
+
+.lugarNome, .lugarPais{
+    font-size: 13px;
+}
+
+#conteudo{
+    display: flex;
+    justify-content: center;
+}
+
+#conteudo section{
+    flex: 2;
+}
+
+#conteudo aside{
+    flex: 1;
+}
+
+.widgetTitle{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.widgetTitleText{
+    color: #010101;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+
+.widgetTitleBar{
+    width: 50px;
+    height: 3px;
+    background-color: #A959CF;
+    margin-top: 10px;
+}
+
+article a{
+    text-decoration: none;
+}
+
+article .data{
+    display: flex;
+}
+
+article .dataPost{
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 12px;
+    padding: 10px;
+    margin-right: 2px;
+}
+
+article .imagemNoticia{
+    width: 100px;
+    height: auto;
+    margin-top: 30px;
+}
+
+.tamanhoImgNoticias{
+    width: 300px;
+    height: 200px;
+}
+
+article .tituloNoticia{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    color: #010101;
+    font-size: 21px;
+}
+
+article .resumoNoticia{
+    font-size: 14px;
+    color: #5c5c5c;
+    line-height: 20px;
+    margin-bottom: 30px;
+}
+
+.grid-container {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 0 100px;
+    float: left;
+}
