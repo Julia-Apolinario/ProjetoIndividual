@@ -20,6 +20,7 @@ header{
     width: 990px;
     display: flex;
     justify-content: space-between;
+
 }
 
 .logo{
@@ -228,9 +229,57 @@ article .resumoNoticia{
     margin-bottom: 30px;
 }
 
-.grid-container {
-    width: 50%;
-    box-sizing: border-box;
-    padding: 0 100px;
-    float: left;
+#conteudo .widgetBody {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+
+}
+
+article.grid-container {
+    width: calc(50% - 20px); 
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.quiz{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.quiz #tituloquiz{
+    display: flex;
+    margin-left: 90px;
+    justify-content: center;
+}
+
+.containerzinho{
+    display: flex;
+    height: 500px;
+    width: 950px;
+}
+.containerzinho #fotoquiz{
+    border-radius: 10%;
+    justify-content: center;
+    align-items: center;
+    margin-left: 290px;
+}
+
+.containerzinho  #textoquiz{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   padding: 90px;
+}
+
+#botao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 200px; 
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
 }
