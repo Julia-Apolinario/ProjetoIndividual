@@ -403,9 +403,8 @@ border-radius: 10px;
 }
 
 /* INÍCIO CSS QUIZ */
-#bodyQuiz{
-    background-color: #C0B7BA;
-}
+
+
 
 #quizcontainer{
     display: flex;
@@ -428,6 +427,7 @@ border-radius: 10px;
     border-radius: 7%;
     border: 3px solid #000000;
     background-image: url();
+
 }
 .quiz button{ 
     padding: 10px 20px;
