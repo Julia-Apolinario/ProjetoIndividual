@@ -76,69 +76,11 @@ nav ul, nav li{
 }
 
 /* FIM CSS HEADER */
-
-/* INÍCIO CSS DOS CARDS PRETOS */
-/*
-.containercolumn{
+aside{
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
-
-
 }
-.cards{
-    height: 240px;
-    display: flex;
-    width:1200px;
-}
-
-.cardTitulo{
-    font-size: 21px;
-}
-
-.cardDescricao{
-    font-size: 14px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    line-height: 25px;
-}
-
-.cards a{
-    display: flex;
-    color: #ffffff;
-    font-size: 13px;
-    text-decoration: none;
-    width: 80px;
-}
-
-.card1, .card2, .card3{
-    color: #ffffff;
-    padding: 20px;
-    border-radius: 30px;
-    background-color: #000000;
-}
-
-#botao1{
-    border: solid 1px rgb(255, 255, 255);
-    border-radius: 20px;
-    color: rgb(255, 255, 255);
-    height: 60px;
-    width: 100px;
-    background-color: rgb(0, 0, 0);
-    transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#botao1:hover{
-    background-color: rgb(255, 2, 154);
-    color: white;
-    transform: scale(1.2);
-    cursor: pointer;
-}
-*/
-/* FIM CSS DOS CARDS PRETOS */
 
 /* INÍCIO CSS DAS NOTÍCIAS*/
 
@@ -158,9 +100,7 @@ nav ul, nav li{
     flex: 2;
 }
 
-#conteudo aside{
-    flex: 1;
-}
+
 
 .widgetTitle{
     margin-top: 30px;
@@ -300,3 +240,47 @@ article.grid-container {
 .nav.next {
     right: 10px;
 }
+
+
+
+/* TESTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE*/
+
+.tamanhoQuadrados{
+display: flex;
+flex-wrap: wrap;
+width: 325px;
+}
+
+.quadrados{
+margin-top: 10px;
+margin-bottom: 20px;
+margin-right: 2.5px;
+flex: 1;
+width: 160px;
+height: 120px;
+cursor: pointer;
+}
+
+.legenda {
+position: relative;
+}
+
+.overlay {
+margin-top: 10px;
+position: absolute;
+top: 0;
+left: 0;
+width: 160px;
+height: 120px;
+background-color: rgba(0, 0, 0, 0.5);
+display: none;
+align-items: center;
+justify-content: center;
+color: white;
+text-align: center;
+}
+
+.quadrados:hover + .overlay {
+display: flex; 
+}
+
