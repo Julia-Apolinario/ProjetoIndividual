@@ -65,8 +65,6 @@ nav ul, nav li{
     justify-content: center;
 }
 
-
-
 .banner p {
     font-size: 30px;
     margin: 18px 0;
@@ -76,119 +74,78 @@ nav ul, nav li{
 }
 
 /* FIM CSS HEADER */
-aside{
+
+/* INÍCIO CSS DOS BANERS */
+
+.introducao .container {
     display: flex;
-    justify-content: end;
     align-items: center;
-}
-
-/* INÍCIO CSS DAS NOTÍCIAS*/
-
-#conteudo{
-    display: flex;
-    justify-content: center;
-}
-
-.container2{
-    width: 990px;
-    display: flex;
     justify-content: space-between;
-
 }
 
-#conteudo section{
-    flex: 2;
+.introducao .introducaotext {
+    width: 50%;
+    padding: 0 40px;
 }
 
-
-
-.widgetTitle{
-    margin-top: 30px;
-    margin-bottom: 20px;
+.introducao .introducaotext h3 {
+    font-size: 56px;
+    color: #000000;
 }
 
-.widgetTitleText{
-    color: #010101;
-    font-size: 21px;
-    font-weight: bold;
+.introducao .introducao p {
+    margin: 5px 0 10px 0;
 }
 
-
-.widgetTitleBar{
-    width: 50px;
-    height: 3px;
-    background-color: #A959CF;
-    margin-top: 10px;
+.introducao .introducaotext a {
+    width: 150px;
+    text-align: center;
 }
 
-article a{
-    text-decoration: none;
+.social {
+    padding: 40px;
 }
 
-article .data{
-    display: flex;
+.social .container {
+    justify-content: space-between;
 }
 
-article .dataPost{
-    background-color: #000000;
-    color: #ffffff;
-    font-size: 12px;
-    padding: 10px;
-    margin-right: 2px;
+.card {
+    text-align: center;
+    width: 250px;
+    height: 400px;
+    box-shadow:0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 30px;
+    margin: 40px;
 }
 
-article .imagemNoticia{
-    width: 100px;
-    height: auto;
-    margin-top: 30px;
-}
-
-.tamanhoImgNoticias{
-    width: 300px;
+.card img {
+    width: 200px;
     height: 200px;
 }
 
-article .tituloNoticia{
-    margin-top: 25px;
-    margin-bottom: 25px;
-    color: #010101;
-    font-size: 21px;
+.card h4 {
+    font-size: 24px;
+    color: #000000;
 }
-
-article .resumoNoticia{
-    font-size: 14px;
-    color: #5c5c5c;
-    line-height: 20px;
-    margin-bottom: 30px;
-}
-
-#conteudo .widgetBody {
+.containeralone{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; 
-
-}
-
-article.grid-container {
-    width: calc(50% - 20px); 
-    margin-bottom: 15px;
-    padding: 10px;
-}
-
-/* FIM CSS DAS NOTÍCIAS*/
-
-/* INÍCIO CSS FOOTER */
-
-.footer {
-    display: flex;
-    color: rgb(0, 0, 0);
-    bottom: 0;
-    width: 100%;
     justify-content: center;
-    align-items: end;
+    align-items: center;
 }
+button{ 
+    padding: 10px 20px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    }
+    
+/* FIM CSS BANERS*/
 
-/* TESTE */
+/* INÍCIO CSS ALBUNS */
 .textinho{
     display: flex;
     align-items: center;
@@ -219,68 +176,17 @@ article.grid-container {
     transform: scale(1.1); /* Efeito de escala ao passar o mouse */
 }
 
-.nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-.nav:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-.nav.prev {
-    left: 10px;
-}
-.nav.next {
-    right: 10px;
+/* FIM CSS ALBUNS */
+
+/* INÍCIO CSS FOOTER */
+
+.footer {
+    display: flex;
+    color: rgb(0, 0, 0);
+    bottom: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: end;
 }
 
-
-
-/* TESTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE*/
-
-.tamanhoQuadrados{
-display: flex;
-flex-wrap: wrap;
-width: 325px;
-}
-
-.quadrados{
-margin-top: 10px;
-margin-bottom: 20px;
-margin-right: 2.5px;
-flex: 1;
-width: 160px;
-height: 120px;
-cursor: pointer;
-}
-
-.legenda {
-position: relative;
-}
-
-.overlay {
-margin-top: 10px;
-position: absolute;
-top: 0;
-left: 0;
-width: 160px;
-height: 120px;
-background-color: rgba(0, 0, 0, 0.5);
-display: none;
-align-items: center;
-justify-content: center;
-color: white;
-text-align: center;
-}
-
-.quadrados:hover + .overlay {
-display: flex; 
-}
-
+/* FIM CSS FOOTER */
