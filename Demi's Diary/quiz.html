@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demi's Diary || Quiz</title>
     <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.js">
 </head>
+
 <body id="bodyQuiz">
     <header>
         <div class="container">
@@ -16,7 +19,7 @@
                 <nav>
                     <ul>
                         <li><a href="index.html">Início</a></li>
-                        <li><a href="">Sobre</a></li>
+                        <li><a href="bibliografia.html">Sobre</a></li>
                         <li class="active"><a href="quiz.html">Quiz</a></li>
                         <li><a href="cadastro.html">Cadastro</a></li>
                     </ul>
@@ -24,19 +27,230 @@
             </div>
         </div>
     </header>
-    <div class="quizcontainer">
-        <div class="introducao">
-            <div class="quiz">
-                <br><br><br><h1>O quanto você sabe sobre a Demi Lovato?</h1><br><br><br><br>
-                <button>Começar o Quiz!</button>
-            </div>
-          
-        
-        </div>
-    </div>
-    
+    <br><br><br>
+    <h1>O quanto você sabe sobre a Demi Lovato?</h1><br><br>
+    <center>
+    <div class="containerquiz">
+    <form>
+        <ol>
+            <div class="grupo1">
 
+
+                <li>
+                    <label for="q1">Qual é o nome completo de Demi Lovato?</label><br>
+                    <select id="q1">
+                        <option value="">Selecione uma opção</option>
+                        <option value="a">Demetria Devonne Lovato</option>
+                        <option value="b">Danielle Louise Lovato</option>
+                        <option value="c">Deborah Lily Lovato</option>
+                    </select>
+                </li>
+                <br>
+                <li>
+                    <label for="q2">Qual é o dia do aniversário de Demi Lovato?</label> <br>
+                    <select id="q2">
+                        <option value="">Selecione uma opção</option>
+                        <option value="a">20 de agosto</option>
+                        <option value="b">20 de julho</option>
+                        <option value="c">20 de junho</option>
+                    </select>
+                </li>
+                <li> <br>
+                    <label for="q3">Em que ano Demi Lovato lançou sua música "Skyscraper"?</label> <br>
+                    <select id="q3">
+                        <option value="">Selecione uma opção</option>
+                        <option value="a">2010</option>
+                        <option value="b">2011</option>
+                        <option value="c">2012</option>
+                    </select>
+                </li>
+                <li> <br>
+                    <label for="q4">Qual é o nome da personagem que Demi Lovato interpretou no filme "Camp
+                        Rock"?</label> <br>
+                    <select id="q4">
+                        <option value="">Selecione uma opção</option>
+                        <option value="a">Mitchie Torres</option>
+                        <option value="b">Shane Gray</option>
+                        <option value="c">Tess Tyler</option>
+                    </select>
+                </li>
+                <li> <br>
+                    <label for="q5">Qual é o nome do primeiro álbum de estúdio de Demi Lovato?</label> <br>
+                    <select id="q5">
+                        <option value="">Selecione uma opção</option>
+                        <option value="a">Don't Forget</option>
+                        <option value="b">Unbroken</option>
+                        <option value="c">Here We Go Again</option>
+                    </select>
+                </li>
+                <br>
+                <button class="botaoquiz" id="btn" onclick="proximar()">Próximo</button>
+            </div>
+            <div class="grupo2">
+
+                <li> <br>
+                    <label for="q6">Quantos irmãos Demi Lovato tem?</label> <br>
+                    <select id="q6">
+                        <option value="">Selecione uma opção</option>
+                        <option value="a">1</option>
+                        <option value="b">2</option>
+                        <option value="c">3</option>
+                    </select>
+                </li>
+                <li> <br>
+                    <label for="q7">Em que ano Demi Lovato entrou para o elenco da série "Barney & Friends"?</label>
+                    <br>
+                    <select id="q7">
+                        <option value="">Selecione uma opção</option>
+                        <option value="a">2000</option>
+                        <option value="b">2001</option>
+                        <option value="c">2002</option>
+                    </select>
+                </li>
+                <li> <br>
+                    <label for="q8">Qual é o título do segundo álbum de estúdio de Demi Lovato, lançado em 2009?</label>
+                    <br>
+                    <select id="q8">
+                        <option value="">Selecione uma opção</option>
+                        <option value="a">Here We Go Again</option>
+                        <option value="b">Unbroken</option>
+                        <option value="c">Confident</option>
+                    </select>
+                </li>
+                <li> <br>
+                    <label for="q9">Qual é o nome da irmã mais nova de Demi Lovato?</label> <br>
+                    <select id="q9">
+                        <option value="">Selecione uma opção</option>
+                        <option value="a">Madison</option>
+                        <option value="b">Dallas</option>
+                        <option value="c">Amber</option>
+                    </select>
+                </li>
+                <li> <br>
+                    <label for="q10">Em que ano Demi Lovato estreou como jurada no programa "The X Factor USA"?</label>
+                    <br>
+                    <select id="q10">
+                        <option value="">Selecione uma opção</option>
+                        <option value="a">2011</option>
+                        <option value="b">2012</option>
+                        <option value="c">2013</option>
+                    </select>
+                </li>
+            </div>
+            <div class="grupo3">
+
+
+                <li> <br>
+                    <label for="q11">Qual é o nome do álbum de Demi Lovato lançado em 2013, que contém os singles "Heart
+                        Attack" e "Made in the USA"?</label> <br>
+                    <select id="q11">
+                        <option value="">Selecione uma opção</option>
+                        <option value="a">Demi</option>
+                        <option value="b">Confident</option>
+                        <option value="c">Unbroken</option>
+                    </select>
+                </li>
+                <li> <br>
+                    <label for="q12">Em que cidade Demi Lovato nasceu?</label> <br>
+                    <select id="q12">
+                        <option value="">Selecione uma opção</option>
+                        <option value="a">Albuquerque, Novo México</option>
+                        <option value="b">Dallas, Texas</option>
+                        <option value="c">Los Angeles, Califórnia</option>
+                    </select>
+                </li>
+                <li> <br>
+                    <label for="q13">Qual é o nome da primeira turnê mundial de Demi Lovato, que ocorreu em
+                        2009?</label> <br>
+                    <select id="q13">
+                        <option value="">Selecione uma opção</option>
+                        <option value="a">Demi World Tour</option>
+                        <option value="b">Tell Me You Love Me World Tour</option>
+                        <option value="c">Demi Live! Warm Up Tour</option>
+                    </select>
+                </li>
+                <li> <br>
+                    <label for="q14">Quantos anos Demi Lovato tinha quando lançou sua autobiografia, "Staying Strong:
+                        365 Days a Year"?</label> <br>
+                    <select id="q14">
+                        <option value="">Selecione uma opção</option>
+                        <option value="a">20</option>
+                        <option value="b">21</option>
+                        <option value="c">22</option>
+                    </select>
+                </li>
+                <li> <br>
+                    <label for="q15">Em qual canal de televisão Demi Lovato apresentou seu próprio programa de
+                        entrevistas, "The Demi Lovato Show"?</label> <br>
+                    <select id="q15">
+                        <option value="">Selecione uma opção</option>
+                        <option value="a">Disney Channel</option>
+                        <option value="b">MTV</option>
+                        <option value="c">E!</option>
+                    </select>
+                </li>
+            </div>
+            <div class="grupo3">
+
+
+                <li> <br>
+                    <label for="q16">Qual é o nome do documentário sobre a vida de Demi Lovato, lançado em 2017?</label>
+                    <br>
+                    <select id="q16">
+                        <option value="">Selecione uma opção</option>
+                        <option value="a">Simply Complicated</option>
+                        <option value="b">Unfiltered</option>
+                        <option value="c">Stronger Together</option>
+                    </select>
+                </li>
+                <li> <br>
+                    <label for="q17">Qual é o nome do personagem que Demi Lovato dublou no filme de animação "Smurfs:
+                        The Lost Village"?</label> <br>
+                    <select id="q17">
+                        <option value="">Selecione uma opção</option>
+                        <option value="a">Smurfette</option>
+                        <option value="b">Clumsy Smurf</option>
+                        <option value="c">Vexy</option>
+                    </select>
+                </li>
+                <li> <br>
+                    <label for="q18">Em que ano Demi Lovato lançou sua linha de roupas e acessórios chamada "Devonne by
+                        Demi"?</label> <br>
+                    <select id="q18">
+                        <option value="">Selecione uma opção</option>
+                        <option value="a">2014</option>
+                        <option value="b">2015</option>
+                        <option value="c">2016</option>
+                    </select>
+                </li>
+                <li> <br>
+                    <label for="q19">Qual é o nome da série documental sobre a vida de Demi Lovato lançada em
+                        2021?</label> <br>
+                    <select id="q19">
+                        <option value="">Selecione uma opção</option>
+                        <option value="a">Dancing with the Devil</option>
+                        <option value="b">Simply Complicated</option>
+                        <option value="c">Stronger Together</option>
+                    </select>
+                </li>
+                <li> <br>
+                    <label for="q20">Qual é o nome do álbum de Demi Lovato lançado em 2020?</label> <br>
+                    <select id="q20">
+                        <option value="">Selecione uma opção</option>
+                        <option value="a">Dancing with the Devil... the Art of Starting Over</option>
+                        <option value="b">Tell Me You Love Me</option>
+                        <option value="c">Confident</option>
+                    </select>
+                </li>
+                <button>Enviar</button>
+            </div>
+        </ol>
+    </form>
+
+</div>
+</center>
 </body>
+
 </html>
 <script>
 

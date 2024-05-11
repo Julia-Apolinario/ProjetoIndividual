@@ -146,39 +146,44 @@ border-radius: 10px;
 }
 
 /* QUIZ */
-
-#quizcontainer{
-    display: flex;
+#bodyQuiz{
+    background-image: url(https://cdn.wallpapersafari.com/62/87/4zwd27.jpg);
+    background-size: cover;
 }
-.introducao{
+.containerquiz{
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: column;
-    margin-top: 80px;
-    
-}
-.quiz{
-    display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 500px;
-    width: 900ox;
-    border-radius: 7%;
-    border: 3px solid #000000;
-    background-image: url();
-
+    height: 450px;
+    width: 700px;
+    border-radius: 40px;
+    border: 2px solid #000000;
+    background-color: white;
 }
-.quiz button{ 
-    padding: 10px 20px;
+select{
+    height: 40px;
+    width: 155px;
+    border-radius: 40px;
+    border: 2px solid #000000
+}
+
+.grupo2{
+    display: none;
+}
+
+.grupo3{
+    display: none;
+}
+.botaoquiz{
+    height: 40px;
+    width: 155px;
+    border-radius: 30px;
     background-color: #000000;
-    color: rgb(255, 255, 255);
-    border: none;
-    cursor: pointer;
-    border-radius: 10px;
-    }
+    color: white;
+    border: 2px solid #fffbfb;
+    justify-content: center;
 
+}
     /* INÍCIO CSS BIBLIOGRAFIA */
     .headerbibli{
         display: flex;
