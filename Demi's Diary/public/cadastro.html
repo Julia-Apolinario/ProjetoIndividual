@@ -5,8 +5,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demi's Diary || Cadastro</title>
-    <link rel="stylesheet" href="style2.css">
-    <script src="./"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="./js/sessao.js"></script>
+    <style>
+header{
+    display: flex;
+    height: 60px;
+}
+.cadastro{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    width: 990px;
+    display: flex;
+    justify-content: space-between;;
+
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    margin-top: 55px;
+}
+
+.imagemLogo{
+    width: 200px;
+}
+
+nav ul, nav li{
+    list-style: none;
+
+}
+
+nav ul{
+    display: flex;
+}
+
+nav a{
+    padding: 15px;
+    text-decoration: none;
+    color: #000000;
+}
+
+nav .active a, nav a:hover{
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.menu{
+    display: flex;
+    align-items: center;
+}
+    </style>
 </head>
 
 <body id="Bodycadastro">
@@ -21,7 +74,7 @@
                     <ul>
                         <li><a href="index.html">Início</a></li>
                         <li><a href="bibliografia.html">Sobre</a></li>
-                        <li><a href="quiz.html">Quiz</a></li>
+                        <li><a href="login.html">Login</a></li>
                         <li class="active"><a href="cadastro.html">Cadastro</a></li>
                     </ul>
                 </nav>
@@ -29,6 +82,11 @@
         </div>
     </header>
     <div class="cadastro">
+      <div class="alerta_erro">
+        <div class="card_erro" id="cardErro">
+          <span id="mensagem_erro"></span>
+        </div>
+      </div>
         <div class="card">
             <h2>Receba Nossas Atualizações!</h2><br>
             <div class="formulario">
@@ -41,10 +99,6 @@
                     <input type="text" placeholder="Digite seu email" id="email_input">
                 </div>
                 <div class="campo">
-                    <label>Data De Nascimento:</label>
-                    <input type="date" id="input_nascimento">
-                </div>
-                <div class="campo">
                     <label>Senha:</label>
                     <input type="password" placeholder="Digite a sua senha" id="senha_input">
                 </div>
@@ -53,16 +107,16 @@
                     <input type="password" placeholder="Confirme a sua senha" id="confirmacao_senha_input">
                 </div>
                 <button onclick="cadastrar()">CADASTRAR</button>
-                <div id="div_aguardar" class="loading-div">
+            </div>
+             <div id="div_aguardar" class="loading-div">
                     <img src="./assets/circle-loading.gif" id="loading-gif" />
                   </div>
           
                   <div id="div_erros_login"></div>
-            </div>
         </div>
     </div>
     <!--INÍCIO FOOTER-->
-    <footer id="footercadastro">
+    <footer class="footer">
         <p>2024 Júlia Apolinario. Todos os direitos reservados.</p>
     </footer>
 
@@ -76,11 +130,9 @@
       //Recupere o valor da nova input pelo nome do id
       // Agora vá para o método fetch logo abaixo
       var nomeVar = nome_input.value;
-     // var cpfVar = cpf_input.value;
       var emailVar = email_input.value;
       var senhaVar = senha_input.value;
       var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    // var empresaVar = listaEmpresas.value
       var arrobaVar = emailVar.indexOf('@');
       var pontoVar = emailVar.indexOf('.');
       if (
@@ -92,7 +144,7 @@
         finalizarAguardar();
         return false;
       } else if (
-        arrobaVar == 0 && pontoVar == 0 
+        arrobaVar == -1 || pontoVar == -1
       ) {
         cardErro.style.display = "block";
         mensagem_erro.innerHTML = `O E-Mail tem de ter @ e ponto.`;
@@ -116,20 +168,10 @@
         finalizarAguardar();
         return false;
       } else if (
-        cpfVar.length != 11
-      ) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = `O CPF só pode conter 11 dígitos.`;
-  
-        finalizarAguardar();
-        return false;
-      } else if (
         nomeVar == "" ||
-        cpfVar == "" ||
         emailVar == "" ||
         senhaVar == "" ||
-        confirmacaoSenhaVar == "" ||
-        empresaVar == ""
+        confirmacaoSenhaVar == ""
       ) {
         cardErro.style.display = "block";
         mensagem_erro.innerHTML =
@@ -151,10 +193,8 @@
           // crie um atributo que recebe o valor recuperado aqui
           // Agora vá para o arquivo routes/usuario.js
           nomeServer: nomeVar,
-          cpfServer: cpfVar,
           emailServer: emailVar,
           senhaServer: senhaVar,
-          empresaServer: empresaVar
         }),
       })
         .then(function (resposta) {
@@ -183,7 +223,7 @@
   
       return false;
     }
-  
+  // ACHO QUE TEM QUE APAGAR
     function listar() {
       fetch("/empresas/listar", {
         method: "GET",

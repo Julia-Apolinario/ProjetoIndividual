@@ -7,7 +7,7 @@
 
 /* INÍCIO CSS DA HEADER */
 
-header{
+.headerindex{
     display: flex;
     height: 700px;
     background-image: url(https://rare-gallery.com/uploads/posts/130561-demi-lovato-american-way-magazine-hd.jpg);
@@ -15,14 +15,14 @@ header{
     background-attachment: fixed;
 }
 
-.logo{
+.headerindex .logo{
     display: flex;
     width: 200px;
     margin-top: 55px;
     align-items: center;
 }
 
-.imagemLogo{
+.headerindex .imagemLogo{
     display: flex;
     width: 200px;
     margin-bottom: 645px;
@@ -134,6 +134,7 @@ nav ul, nav li{
     justify-content: center;
     align-items: center;
 }
+
 button{ 
     padding: 10px 20px;
     background-color: #000000;
@@ -165,6 +166,7 @@ button{
     justify-content: center;
     margin-top: 30px;
 }
+
 .carousel {
     position: relative;
     width: 100%;
@@ -175,17 +177,20 @@ button{
     justify-content: center;
     flex-direction: column;
 }
+
 .section {
     display: flex;
     gap: 90px; /* Espaçamento entre as imagens */
     transition: transform 0.5s ease;
     margin-bottom: 10px;
 }
+
 .section img {
     width: 200px; /* Largura das imagens */
     height: auto;
     transition: transform 0.3s ease;
 }
+
 .section img:hover {
     transform: scale(1.1); /* Efeito de escala ao passar o mouse */
 }
@@ -199,9 +204,246 @@ button{
     color: rgb(0, 0, 0);
     bottom: 0;
     width: 100%;
-    justify-content: center;
-    align-items: end;
-    justify-content: space-evenly;
+    justify-content: end;
+    
+
 }
 
 /* FIM CSS FOOTER */
+
+/* CSS CADASTRO*/
+
+/* BODY */
+
+#Bodycadastro{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(https://images.wallpapersden.com/image/download/demi-lovato-2017_am5pZ2iUmZqaraWkpJRpaGhorWdtbW4.jpg);
+}
+
+.cadastro{
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    margin-top:60px;
+    margin-bottom: 130px;
+    margin-left: 800px;
+    
+}
+
+.formulario{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.cadastro .card {
+    justify-content: flex-end;
+    border: 1px solid #000000; /* Adiciona uma borda sólida cinza ao redor do cartão */
+    border-radius: 25px; /* Adiciona cantos arredondados */
+    padding: 20px; /* Adiciona espaço interno ao redor do conteúdo */
+    margin: 20px; /* Adiciona margem ao redor do cartão */
+    margin-left: 100px;
+    margin-top: 20px;
+    height: 500px;
+    width: 350px;
+}
+
+.cadastro .card h2{
+    display: flex;
+    justify-content: center;
+    color: #000000;
+  
+}
+
+.campo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input::placeholder {
+    color: #000000;  
+}
+
+.campo input{
+    margin: 13px;
+    width: 200px;
+    padding: 9px 15px;
+    border: 2px solid #000000;
+    border-radius: 30px;
+    background: transparent;
+    color: rgb(0, 0, 0);
+
+}
+
+.formulario button{ 
+padding: 10px 20px;
+background-color: #000000;
+color: rgb(255, 255, 255);
+border: none;
+cursor: pointer;
+border-radius: 10px;
+}
+        
+.loading-div {
+    width: 50px;
+    display: none;
+  }
+  
+  .loading-div img {
+    height: 50px;
+    width: 50px;
+  }
+  
+  #div_erros_login {
+    display: none;
+  }
+  
+  .alerta_erro{
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .card_erro {
+    display: none;
+    background-color:transparent;
+    color: black;
+    width: 230px;
+    position: fixed;
+    justify-content: end;
+    align-items: end;
+    border-radius: 20px;
+    border: #2e121d 3px solid;
+    padding: 10px;
+  }
+  
+  .card_erro #mensagem_erro{
+    font-weight: 500;
+    font-size: 20px;
+  }
+  /* FIM CSS CADASTRO*/
+
+  /* INICIO CSS LOGIN*/
+  #Bodylogin{
+    background-image: url(https://images.hdqwalls.com/wallpapers/demi-lovato-2018-pc.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.login{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-top:60px;
+    margin-bottom: 130px;
+    margin-left: 250px;
+    
+}
+
+.login .card {
+    justify-content: flex-end;
+    border: 1px solid #000000; /* Adiciona uma borda sólida cinza ao redor do cartão */
+    border-radius: 25px; /* Adiciona cantos arredondados */
+    padding: 20px; /* Adiciona espaço interno ao redor do conteúdo */
+    margin: 20px; /* Adiciona margem ao redor do cartão */
+    margin-left: 50px;
+    margin-top: 90px;
+    height: 350px;
+    width: 350px;
+}
+
+.login .card h2{
+    display: flex;
+    justify-content: center;
+    color: #000000;
+  
+}
+/* INICIO CSS QUIZ*/
+#bodyQuiz{
+    /* background-image: url(https://images4.alphacoders.com/943/943970.jpg);*/
+     background-image: url(https://getwallpapers.com/wallpaper/full/f/e/7/1305127-beautiful-demi-lovato-wallpaper-2018-1920x1080-for-windows-10.jpg);
+     background-size: cover;
+     background-repeat: no-repeat;
+ 
+ }
+ .quiz{
+     display: flex;
+     justify-content: start;
+     align-items: start;
+ }
+ 
+ 
+ .quizcontainer .grupo{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     height: 500px;
+     width: 500px;
+     background-color:transparent;
+     border: #2e121d 3px solid;
+     border-radius: 40px;
+     margin-top: 90px;
+     margin-left: 200px;
+  
+ }
+ .opcoes{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+ }
+ 
+ .titulo{
+     margin-bottom: 10px;
+ }
+ select{
+     margin: 10px;
+     width: 200px;
+     padding: 9px 15px;
+     border: 2px solid #000000;
+     border-radius: 30px;
+     background: transparent;
+     color: rgb(0, 0, 0);
+ 
+ }
+ 
+ .proximo{
+ width: 100px;
+ height: 35px;
+ background-color: black;
+ color:white;
+ border: none;
+ cursor: pointer;
+ border-radius: 10px;
+ 
+ }
+ 
+ .textointrod{
+     display: flex;
+     align-items: center;
+     margin-top: 70px;
+ }
+ 
+ .grupo11{
+     display: flex;
+     justify-content: center;
+     align-items: e;
+     flex-direction: column;
+     height: 500px;
+     width: 500px;
+     background-color:transparent;
+     border: #2e121d 3px solid;
+     border-radius: 40px;
+     margin-top: 90px;
+     margin-left: 200px;
+  
+ }
+
+
+
+
+
+
