@@ -146,18 +146,105 @@ button{
     
 /* FIM CSS BANERS*/
 
-/* INICIO APRESENTAÇÃO*/
-.tituloapr{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* INICIO  CRUZADINHA*/
+
+table {
+    border: 1px black solid;
+    font-size:25px; 
+    margin-left: 130px;
+    margin: auto;
 }
 
-.apresentacao{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
+
+tr {
+    border: 1px black solid;
+}
+
+td {
+    border: 1px black solid;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    vertical-align: center;
+}
+
+button{
+    border: 0px;
+    background-color: #EC7063;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+.container{
+    width: 1100px;
+    margin: auto;
+}
+
+#div_game{
+    background-color:transparent;
+    margin: auto;
+    width: 800px;
+    height: 680px;
+}
+.titulocruzada
+
+#div_questions{
+background-color:#ca548d;
+width: 700px;
+margin: auto;
+}
+
+.button{
+    margin: auto;
+    display: inline-block;
+}
+
+#button_verify{
+    width: 100px;
+    margin: auto;
+}
+#input_answer{
+    width: 100px;
+    margin: auto;
+}
+
+.deadCell{
+    background-color:#C8C4C1;
+}
+.availableCell{
+    background-color: #ffffff;
+}
+
+
+#div_information{
+    width: 500px;
+    margin: auto;
+    background-color: #85C1E9;
+    font-size: 20px;
+}
+
+
+#div_verifiedAnswer{
+    width: 500px;
+    height: 70px;
+    margin: auto;
+    text-align: center;
+    font-size: 20px;
+    vertical-align:center;
+    margin-bottom: 20px;
+}
+.correctAnswer{
+    background-color: #58D68D;
+    color: #196F3D;
+    border:1px #196F3D solid;
+}
+.wrongAnswer{
+    background-color: #EC7063  ;
+    color: #7B241C;
+    border:1px #7B241C solid;
+
 }
 /* INÍCIO CSS ALBUNS */
 .textinho{
@@ -441,6 +528,7 @@ border-radius: 10px;
      margin-left: 200px;
   
  }
+
 
 
 
