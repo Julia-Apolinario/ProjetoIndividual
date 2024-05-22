@@ -224,18 +224,18 @@
 <script src="https://kit.fontawesome.com/da8660718a.js" crossorigin="anonymous"></script>
 
 <script>
-    var special_words = ['DALLAS', 'LIONHEART', 'HOLYFVCK', 'HER', 'ROM', 'EPROM', 'SLASH', 'Memória de Massa', 'DMA', 'CS', 'Adress Bus', 'Data Bus', 'I5', 'I7', 'Dual Core', 'CONFIDENT'];
+    var special_words = ['DALLAS', 'LIONHEART', 'HOLYFVCK', 'HER', 'YOU', 'ME', 'SLASH', 'SORRYNOTSORRY', 'YES', 'CS', 'Adress Bus', 'Data Bus', 'I5', 'I7', 'Dual Core', 'CONFIDENT'];
 
 var questions_list = [
     'Qual é o nome da irmã mais velha da Demi Lovato?',
     'Qual música foi uma homenagem para um cachorrinho da Demi que faleceu?',
     'Qual é o nome do ultimo álbum que a demi lançou?',
     'Complete a letra: " If happy is ___, Im happy for you"',
-    'Tipo de memória não volátil que oferece dados apenas para leitura',
-    'Tipo de memória não volátil que precisa ter seu chip exposto a luz ultravioleta para apagar seu conteúdo',
+    'Complete a letra: ___ WANNA HELPE ME?',
+    'Complete a letra "Easier,go easier on ___"',
     'Com qual astro do rock demi lovato fez feat na música Sorry Not Sorry (Rock Version)?',
-    'Tipo de memória que precisa ter seu conteúdo copiado na RAM para poder ser executado pela CPU',
-    'Permite que periféricos acessem diretamente a RAM sem ocupar processamento',
+    'Com qual música demi lovato chegou no top 10 da bilboard hot100?',
+    'Em qual música demi lovato revela que está pronta para casar?',
     'Também conhecido como Slave Select (SS). Usado para selecionar um ou um conjunto de circuitos que estão conectados no computador',
     'Grupo de linhas ou trilhas usadas para se referir a um endereço físico na memória. O número de trilhas determina a quantidade de endereços na memória física',
     'Também chamado de Memory Bus. É responsável para carregar os dados.',
@@ -246,12 +246,11 @@ var questions_list = [
 ];
 
 var filledCell = [2, 20, 38, 56, 74, 133, 134, 135, 59, 77, 95,92, 113, 131, 149,
-    167, 185, 275, 59, 60, 61, 272, 290, 308, 236,
-    254, 272, 290, 308, 116, 134,136,137,138,139,140,141,152, 170, 188, 27, 45, 63, 81, 99, 117,
-    135, 153, 171, 189, 207, 225, 243, 261, 279, 297, 203, 204, 205, 312,
+    167, 185, 275, 59, 60, 61, 272, 290, 308, 236,272, 290, 308, 116, 134,136,137,138,139,140,141,152, 170, 188, 27, 45, 63, 81, 99, 117,
+    135, 153, 171, 189, 207, 225, 243, 203, 204, 205, 312,
     313, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 187, 20, 223,
     241, 259, 277, 295, 313, 117, 118, 113, 114, 37, 38, 39, 40, 41, 42,
-    43, 44, 45, 3, 21, 39, 57, 75, 93, 111, 129, 147];
+    43, 44, 45, 3, 21, 39, 57, 75, 93, 111, 129, 147,237];
 
 var firstIndex= [2, 133, 59, 59, 272, 236, 116, 27, 203, 312, 270, 187, 117, 113, 37, 3];
 
@@ -322,12 +321,12 @@ var word = {
                 findCell.innerHTML = word.word5.letter[i];
                 console.log(word.word5.letter[i]);
             }
-            cell_272.innerHTML = '<span style="color: red; font-size:7px">5</span>R';
+            cell_272.innerHTML = '<span style="color: red; font-size:7px">5</span>Y';
         }
     },
     word6: {
         letter: special_words[5].split(''),
-        position: [236, 254, 272, 290, 308],
+        position: [236,237],
         write: function () {
             for (i in word.word6.letter) {
                 var findCell = document.querySelector(`#cell_${word.word6.position[i]}`);
@@ -335,7 +334,7 @@ var word = {
                 findCell.innerHTML = word.word6.letter[i];
                 console.log(word.word6.letter[i]);
             }
-            cell_236.innerHTML= '<span style="color: red; font-size:7px">6</span>E';
+            cell_236.innerHTML= '<span style="color: red; font-size:7px">6</span>M';
         }
     },
     word7: {
@@ -348,12 +347,12 @@ var word = {
                 findCell.innerHTML = word.word7.letter[i];
                 console.log(word.word7.letter[i]);
             }
-            cell_116.innerHTML = '<span style="color: red; font-size:7px">7</span>F';
+            cell_116.innerHTML = '<span style="color: red; font-size:7px">7</span>S';
         }
     },
     word8: {
         letter: special_words[7].split(''),
-        position: [27, 45, 63, 81, 99, 117, 135, 153, 171, 189, 207, 225, 243, 261, 279, 297],
+        position: [27, 45, 63, 81, 99, 117, 135, 153, 171, 189, 207, 225, 243],
         write: function () {
             for (i in word.word8.letter) {
                 var findCell = document.querySelector(`#cell_${word.word8.position[i]}`);
@@ -361,10 +360,10 @@ var word = {
                 findCell.innerHTML = word.word8.letter[i];
                 console.log(word.word8.letter[i]);
             }
-            cell_27.innerHTML = '<span style="color: red; font-size:7px">8</span>M';
-            cell_117.innerHTML = '<span style="color: red; font-size:7px">13</span>i';
-            cell_153.innerHTML = '-';
-            cell_207.innerHTML = '-';
+            cell_27.innerHTML = '<span style="color: red; font-size:7px">8</span>S';
+            cell_117.innerHTML = '<span style="color: red; font-size:7px">13</span>N';
+            // cell_153.innerHTML = '-';
+            // cell_207.innerHTML = '-';
         
         }
     },
@@ -378,7 +377,7 @@ var word = {
                 findCell.innerHTML = word.word9.letter[i];
                 console.log(word.word9.letter[i]);
             }
-            cell_203.innerHTML = '<span style="color: red; font-size:7px">9</span>D';
+            cell_203.innerHTML = '<span style="color: red; font-size:7px">9</span>Y';
         }
     },
     word10: {
