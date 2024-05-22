@@ -9,8 +9,10 @@
     <title>Demi's Diary || Página Inicial</title>
 
 </head>
-
-<body style="background-color:#C8C4C1;">
+<!--
+    #C8C4C1
+-->
+<body   >
     <!-- INÍCIO HEADER-->
     <header class="headerindex">
         <div class="logo">
@@ -75,19 +77,21 @@
             <div class="container">
 
                 <div class="card">
-                    <a style="text-decoration: none;" href="quiz.html">
+                    <a style="text-decoration: none;" href="cadastro.html">
                         <img src="https://static.independent.co.uk/2022/08/09/18/newFile-1.jpg?width=1200&height=1200&fit=crop"
                             alt="">
                     </a>
                     <h4>Quiz</h4>
                     <p>
-                        Fã de Demi Lovato? Acha que sabe tudo sobre sua incrível jornada? Teste seus
+                        Fã de Demi Lovato? Acha que sabe tudo sobre sua incrível jornada? Faça o seu cadastro e teste seus
                         conhecimentos com nosso quiz exclusivo!.
                     </p>
                 </div>
 
                 <div class="card">
+                    <a style="text-decoration: none;" href="login.html">
                     <img src="https://lastfm.freetls.fastly.net/i/u/ar0/7953e6d4d4b4fc473698d5ee165e73b1.jpg" alt="">
+                </a>
                     <h4>Top 10!</h4>
                     <p>
                         Curioso para descobrir quem lidera o placar no quiz sobre Demi Lovato? Não espere mais! Confira
@@ -101,6 +105,21 @@
 
         <div class="containercruzado">
             <h1>Palavras-Cruzadas</h1><br>
+            <br>
+        </div>
+        <article>
+            <div id="div_information">
+                <div class="titulocruzada">
+                    <h2>Intruções do Jogo</h2><br><br>
+                </div>
+                <p>
+                    Clique em "Começar o Jogo" para iniciar uma partida <br><br>
+                    Perguntas serão exibidas na parte inferior do quadro <br><br>
+                    Insira a sua resposta na caixa de texto e clique em "Verificar" para conferir a sua
+                    resposta<br><br>
+                    A partida acaba quando as 16 questões forem respondidas <br><br>
+                </p>
+            </div>
             <div class="div_button">
                 <center>
                     <button class="button" id="bt_start" onclick="start()">Começar o Jogo</button>
@@ -108,27 +127,13 @@
                         Jogo</button>
                 </center>
             </div>
-            <br>
-        </div>
-        <article>
             <div style="display: none;" id="containercruzado">
+                
                 <div style="display: none" id="div_verifiedAnswer">
                     <h3>Resposta Correta</h3>
                 </div>
                 <div id="div_game">
                     <br>
-                    <div id="div_information">
-                        <div class="titulocruzada">
-                            <h2>Intruções do Jogo</h2><br><br>
-                        </div>
-                        <p>
-                            Clique em "Começar o Jogo" para iniciar uma partida <br><br>
-                            Perguntas serão exibidas na parte inferior do quadro <br><br>
-                            Insira a sua resposta na caixa de texto e clique em "Verificar" para conferir a sua
-                            resposta<br><br>
-                            A partida acaba quando as 16 questões forem respondidas <br><br>
-                        </p>
-                    </div>
                     <br>
                     <div id="div_canvasCruzada"></div>
                     <br>
@@ -144,18 +149,8 @@
                 </div>
             </div>
             </div>
-        </article>
+        </article><br><br>
 
-        <div class="diariozinho">
-            <div class="perguntas">
-                <h1>Monte o seu diário!</h1>
-                Qual a sua Música Favorita?<input type="text" id="input_musica">
-                Qual o seu Albúm Favorito?<input type="text" id="input_album">
-                Em que ano você começou a gostar da Demi? <input type="number" id="input_ano">
-                Você tem quantos anos? <input type="text" id="input_ano">
-        
-            </div>
-        </div>
 
         <!-- INÍCIO PRODUTOS-->
         <h1 class="textinho">Compre Os Álbuns Da Demi Lovato!</h1><br>
@@ -229,16 +224,16 @@
 <script src="https://kit.fontawesome.com/da8660718a.js" crossorigin="anonymous"></script>
 
 <script>
-    var special_words = ['DALLAS', 'LIONHEART', 'HOLLYFVCK', 'RAM', 'ROM', 'EPROM', 'FLASH', 'Memória de Massa', 'DMA', 'CS', 'Adress Bus', 'Data Bus', 'I5', 'I7', 'Dual Core', 'CONFIDENT'];
+    var special_words = ['DALLAS', 'LIONHEART', 'HOLYFVCK', 'HER', 'ROM', 'EPROM', 'SLASH', 'Memória de Massa', 'DMA', 'CS', 'Adress Bus', 'Data Bus', 'I5', 'I7', 'Dual Core', 'CONFIDENT'];
 
 var questions_list = [
     'Qual é o nome da irmã mais velha da Demi Lovato?',
     'Qual música foi uma homenagem para um cachorrinho da Demi que faleceu?',
     'Qual é o nome do ultimo álbum que a demi lançou?',
-    'Tipo de memória volátil que tem como nome Random Acess Memory. Qual é a sigla deste componente?',
+    'Complete a letra: " If happy is ___, Im happy for you"',
     'Tipo de memória não volátil que oferece dados apenas para leitura',
     'Tipo de memória não volátil que precisa ter seu chip exposto a luz ultravioleta para apagar seu conteúdo',
-    'Tipo particular de EEPROM que mantém as informações armazenadas sem a necessidade de uma fonte de energia elétrica',
+    'Com qual astro do rock demi lovato fez feat na música Sorry Not Sorry (Rock Version)?',
     'Tipo de memória que precisa ter seu conteúdo copiado na RAM para poder ser executado pela CPU',
     'Permite que periféricos acessem diretamente a RAM sem ocupar processamento',
     'Também conhecido como Slave Select (SS). Usado para selecionar um ou um conjunto de circuitos que estão conectados no computador',
@@ -251,7 +246,7 @@ var questions_list = [
 ];
 
 var filledCell = [2, 20, 38, 56, 74, 133, 134, 135, 59, 77, 95,92, 113, 131, 149,
-    167, 185, 203, 275, 59, 60, 61, 272, 290, 308, 236,
+    167, 185, 275, 59, 60, 61, 272, 290, 308, 236,
     254, 272, 290, 308, 116, 134,136,137,138,139,140,141,152, 170, 188, 27, 45, 63, 81, 99, 117,
     135, 153, 171, 189, 207, 225, 243, 261, 279, 297, 203, 204, 205, 312,
     313, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 187, 20, 223,
@@ -292,7 +287,7 @@ var word = {
     },
     word3: {
         letter: special_words[2].split(''),
-        position: [59, 77, 95, 113, 131, 149, 167, 185, 203],
+        position: [59, 77, 95, 113, 131, 149, 167, 185],
         write: function () {
             for (i in word.word3.letter) {
                 var findCell = document.querySelector(`#cell_${word.word3.position[i]}`);
@@ -314,7 +309,7 @@ var word = {
                 findCell.innerHTML = word.word4.letter[i];
                 console.log(word.word4.letter[i]);
             }
-            cell_59.innerHTML = '<span style="color: red; font-size:7px">3/4</span>R';            
+            cell_59.innerHTML = '<span style="color: red; font-size:7px">3/4</span>H';            
         }
     },
     word5: {
@@ -496,6 +491,7 @@ function start() {
     containercruzado.style.display='block'
     div_questions.style.display = 'block';
     div_information.innerHTML = '';
+    div_information.style.display = 'none';
     renderGrid();
     gameSequence();
 

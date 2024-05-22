@@ -199,6 +199,8 @@ margin: auto;
 .button{
     margin: auto;
     display: inline-block;
+    background-color: #000000;
+    color: white;
 }
 
 #button_verify{
@@ -221,8 +223,11 @@ margin: auto;
 #div_information{
     width: 500px;
     margin: auto;
-    background-color: #85C1E9;
     font-size: 20px;
+}
+.containercruzado h1{
+    display: flex;
+    justify-content: center;
 }
 
 
