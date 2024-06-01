@@ -60,9 +60,8 @@ nav .active a, nav a:hover{
     align-items: center;
 }
     </style>
-</header>
 
-<body id="Bodycadastro">
+<body id="Bodycadastro" onload="listar()">
     <!--INÍCIO HEADER-->
     <header>
         <div class="containercadastro">
@@ -106,6 +105,12 @@ nav .active a, nav a:hover{
                     <label>Confirmação Senha:</label>
                     <input type="password" placeholder="Confirme a sua senha" id="confirmacao_senha_input">
                 </div>
+                <div class="campo">
+                  <label>Seu álbum favorito:</label>
+                 <select id="album_input">
+                  <option selected>Selecione um álbum</option>
+                 </select>
+              </div>
                 <button onclick="cadastrar()">CADASTRAR</button>
             </div>
              <div id="div_aguardar" class="loading-div">
@@ -132,6 +137,7 @@ nav .active a, nav a:hover{
       var nomeVar = nome_input.value;
       var emailVar = email_input.value;
       var senhaVar = senha_input.value;
+      var albumVar = album_input.value;
       var confirmacaoSenhaVar = confirmacao_senha_input.value;
       var arrobaVar = emailVar.indexOf('@');
       var pontoVar = emailVar.indexOf('.');
@@ -195,6 +201,7 @@ nav .active a, nav a:hover{
           nomeServer: nomeVar,
           emailServer: emailVar,
           senhaServer: senhaVar,
+          albumServer: albumVar,
         }),
       })
         .then(function (resposta) {
@@ -223,15 +230,15 @@ nav .active a, nav a:hover{
   
       return false;
     }
-  // ACHO QUE TEM QUE APAGAR
+
     function listar() {
       fetch("/empresas/listar", {
         method: "GET",
       })
         .then(function (resposta) {
-          resposta.json().then((empresas) => {
-            empresas.forEach((empresa) => {
-              listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
+          resposta.json().then((album) => {
+            album.forEach((album) => {
+              album_input.innerHTML += `<option value='${album.idAlbum}'>${album.nome}</option>`;
             });
           });
         })

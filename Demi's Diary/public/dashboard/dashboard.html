@@ -2,87 +2,172 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Dashboards</title>
-
-    
+    <title>Demi's Diary | Dashboards</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-
-    <!-- scripts do Chart.js - 2022-1 -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!--FONT AWESOME-->
-    <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
 </head>
-
-<!-- <body onload=" atualizarFeed()"> -->
 
 <body>
 
     <div class="janela">
         <div class="header-left">
-            <h1>AquaTech</h1>
+            <img style="width: 200px;" src="../img/logo.png" alt="logo">
+            <h1></h1>
 
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-                <h4>Seu CPF é: <span id="b_cpf">cpf</span></h4>
             </div>
 
-            <div class="btn-nav-white">
-                <a href="cards.html">
-                    <h3>Aquários</h3>
+            <div class="dashboard">
+                <a href="dashboard.html">
+                    <h3>Dashboard</h3>
                 </a>
             </div>
 
-            <div class="btn-nav">
-
-                <h3>Gráficos</h3>
-
-            </div>
-
             <div class="btn-nav-white">
-                <a href="mural.html">
-                    <h3>Mural de Avisos</h3>
+                <a href="quiz.html">
+                    <h3>Quiz</h3>
                 </a>
             </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
+            <div class="sair" onclick="limparSessao()">
                 <h3>Sair</h3>
             </div>
-
         </div>
 
-        <div class="dash">
+        <div class="dash" style="background-color: white;">
             <div id="alerta">
             </div>
-
             <div class="btns-dash" id="btnAquario">
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
+                <div class="box">
+                    <div class="pai_titulo">
+                        <div class="graph_titulo">
+                            <h2>DASHBOARD:</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="quadrinhos">
+                <div class="totalquestoes">
+                    <b> Total Questões:</b>
+                    <h1><b>10</b></h1>
+                </div>
+                <div class="maiornota">
+                    <b> Maior Nota:</b>
+                </div>
+                <div class="menornota">
+                    <b> Menor Nota:</b>
+                </div>
+                <div class="mediaacertos">
+                    <b> Média de Acertos:</b>
+                </div>
             </div>
             <div id="graficos">
+                <div class="ultimaPontuacao">
+                    <!--GRÁFICO PIZZA-->
+                    <canvas id="meuGrafico" width="500" height="500"></canvas>
+                </div>
+                <div class="historico">
+                    <!-- GRÁFICO BARRA-->
+                    <canvas id="historicoGrafico" width="600" height="400"></canvas>
+                </div>
             </div>
         </div>
     </div>
-
-
 </body>
-
 </html>
 
 <script>
+   
+   var ctx = document.getElementById('meuGrafico').getContext('2d');
+        
+    
+        var meuGrafico = new Chart(ctx, {
+            type: 'pie', 
+            data: {
+                labels: ['Acertos', 'Erros'],
+                datasets: [{
+                    label: 'Última Pontuação',
+                    data: [70, 30],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 99, 132, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Última Pontuação (%)',
+                        font: {
+                            size: 24
+                        },
+                        color: '0000'
+                    }
+                }
+            }
+        });
+
+        // Gráfico de Barra para Histórico
+        var ctx2 = document.getElementById('historicoGrafico').getContext('2d');
+        var historicoGrafico = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['Tentativa 1', 'Tentativa 2', 'Tentativa 3', 'Tentativa 4', 'Tentativa 5'], // Exemplo de tentativas
+                datasets: [{
+                    label: 'Últimas Pontuações',
+                    data: [10, 40, 60, 80, 100],
+                    backgroundColor: [
+                        'rgb(240, 128, 128)',
+                        'rgb(244, 151, 142)',
+                        'rgb(248, 173, 157)',
+                        'rgb(251, 196, 171)',
+                        'rgb(255, 218, 185)'
+                    ],
+
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Histórico de Pontuações',
+                        font: {
+                            size: 24
+                        },
+                        color: '#00000'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+            }
+        });
+
+       
+
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-    b_cpf.innerHTML = sessionStorage.CPF_USUARIO;
 
     let proximaAtualizacao;
 
