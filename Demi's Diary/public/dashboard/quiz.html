@@ -75,7 +75,8 @@
             <div class="jogo iniciar" id="inicio">
                 <div class="titulo">Teste os seus conhecimentos sobre a Demi Lovato!</div>
                 <button onclick="Pergunta()" id="botao_iniciar">JOGAR</button>
-                <div class="pontuacao" id="div_pontos"></div>
+                <div class="pontuacao" id="textinhoFinal"></div>
+                <button style="display:none ;" id="registrarnota" onclick="cadastrarNota()">Registrar Pontuação</button>
             </div>
             <div class="jogo" id="perguntas" style="display:none;">
                 <div class="containerperguntas" id="div_pergunta"></div>
@@ -86,9 +87,8 @@
                     <div class="botao" id="alt4" onclick="verificar(3)"></div>
                 </div>
             </div>
-            <div class="graph"></div>
         </div>
-        <a href="../index.html"><div class="sair"><img src="https://cdn-icons-png.flaticon.com/512/126/126467.png" class="imgsair"></div></a>
+
     </div
 </body>
 </html>

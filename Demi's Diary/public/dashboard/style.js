@@ -6,7 +6,7 @@ var perguntas_quiz = [
     },
     {
         pergunta: "Em que ano Demi Lovato lançou seu álbum de estreia, 'Don't Forget'?",
-        alternativas: ["2009", "2008", "2007", "2010"],
+        alternativas: ["2009", "2007", "2008", "2010"],
         resposta: 2
     },
     {
@@ -46,8 +46,8 @@ var perguntas_quiz = [
     },
     {
         pergunta: "Qual é o nome do livro escrito por Demi Lovato que contém citações inspiradoras?",
-        alternativas: ["Becoming: My Story", "Staying Strong: 365 Days a Year", "Living Fearless", "Brave Enough"],
-        resposta: 1
+        alternativas: ["Becoming: My Story", "Brave Enough", "Living Fearless", "Staying Strong: 365 Days a Year"],
+        resposta: 3
     }
 ];
 
@@ -58,11 +58,11 @@ function Pergunta() {
     document.getElementById('inicio').style.display = "none";
     document.getElementById('perguntas').style.display = "flex";
 
-    document.getElementById('div_pergunta').innerHTML = `${perguntas_quiz[pergunta_atual].pergunta}`;
-    document.getElementById('alt1').innerHTML = `${perguntas_quiz[pergunta_atual].alternativas[0]}`;
-    document.getElementById('alt2').innerHTML = `${perguntas_quiz[pergunta_atual].alternativas[1]}`;
-    document.getElementById('alt3').innerHTML = `${perguntas_quiz[pergunta_atual].alternativas[2]}`;
-    document.getElementById('alt4').innerHTML = `${perguntas_quiz[pergunta_atual].alternativas[3]}`;
+    document.getElementById('div_pergunta').innerHTML = perguntas_quiz[pergunta_atual].pergunta;
+    document.getElementById('alt1').innerHTML = perguntas_quiz[pergunta_atual].alternativas[0];
+    document.getElementById('alt2').innerHTML = perguntas_quiz[pergunta_atual].alternativas[1];
+    document.getElementById('alt3').innerHTML = perguntas_quiz[pergunta_atual].alternativas[2];
+    document.getElementById('alt4').innerHTML = perguntas_quiz[pergunta_atual].alternativas[3];
 }
 
 function verificar(selected) {
@@ -86,26 +86,49 @@ function verificar(selected) {
             corretaElement.classList.remove('correto');
             Pergunta();
         } else {
-            var porcentagem = (pontos * 100) /10 ;
+            var porcentagem = (pontos * 100) / perguntas_quiz.length;
             pergunta_atual = 0;
 
             document.getElementById('inicio').style.display = "flex";
             document.getElementById('perguntas').style.display = "none";
 
-            var div_pontos = document.getElementById('div_pontos');
-            div_pontos.innerHTML = `VOCÊ ACERTOU ${pontos} de ${perguntas_quiz.length}, OU SEJA, ${porcentagem}%.<br>Veja com mais detalhes na página de Dashboard!<br>(Redirecionando...)`;
-
+            var textinhoFinal = document.getElementById('textinhoFinal');
+            textinhoFinal.innerHTML = `VOCÊ ACERTOU ${pontos} de ${perguntas_quiz.length}, OU SEJA, ${porcentagem}%.<br>Veja com mais detalhes na página de Dashboard!`;
             document.getElementById('botao_iniciar').style.display = "none";
             document.querySelector('.titulo').style.display = "none";
-
+            registrarnota.style.display = "flex";
             selectedElement.classList.remove('correto');
             selectedElement.classList.remove('errado');
             corretaElement.classList.remove('correto');
             pontos = 0;
-            setTimeout(() => {
-                window.location = "dashboard.html";
-              }, "3000");
+            // setTimeout(() => {
+            //     window.location = "dashboard.html";
+            //   }, "3000");
         }
-    }, 1000)
-    ;
+    }, 1000);
+}
+
+function cadastrarNota() {
+    // Enviando o valor da nova input
+    fetch("/pontuacao/cadastrarNota", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            NotaServer: pontos
+        }),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro na solicitação: ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Nota cadastrada com sucesso:', data);
+    })
+    .catch(error => {
+        console.error('Erro ao cadastrar a nota:', error);
+    });
 }

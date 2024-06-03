@@ -1,59 +1,46 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
+CREATE DATABASE DemisDiary;
+USE DemisDiary;
 
-/*
-comandos para mysql server
-*/
 
-CREATE DATABASE aquatech;
 
-USE aquatech;
-
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14)
+-- Criação da tabela 'album'
+CREATE TABLE album (
+    idAlbum INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100),
+    dtlancamento DATE
 );
 
+-- Criação da tabela 'usuario'
 CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+    idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(45),
+    email VARCHAR(100),
+    senha VARCHAR(45),
+    fk_album INT,
+    FOREIGN KEY (fk_album) REFERENCES album(idAlbum)
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+-- Criação da tabela 'pontuacao'
+CREATE TABLE pontuacao (
+    idPontuacao INT PRIMARY KEY AUTO_INCREMENT,
+    fk_usuario INT,
+    nota INT CHECK (nota >= 0 AND nota <= 10),
+    data_hora TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (fk_usuario) REFERENCES usuario(idUsuario)
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
-);
+INSERT INTO album (nome, dtlancamento) VALUES 
+('Dont Forget', '2008-09-23'),
+('Here We Go Again', '2009-07-21'),
+('Unbroken', '2011-09-20'),
+('Demi', '2013-05-10'),
+('Confident', '2015-10-16'),
+('Tell Me You Love Me', '2017-09-29'),
+('Dancing with the Devil... the Art of Starting Over', '2021-04-02'),
+('HOLY FVCK', '2022-08-19'),
+('Revamped', '2023-09-15');
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
+SELECT * FROM album;
+SELECT * FROM usuario;
+SELECT * FROM pontuacao;
 
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
-
-insert into empresa (razao_social, cnpj) values ('Empresa 1', '00000000000000');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
