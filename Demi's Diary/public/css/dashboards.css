@@ -257,24 +257,6 @@ border: 1px solid black;
 margin-left: 10px;
 }
 
-#graficos{
-display: flex;
-justify-content: space-between;
-margin-top: 90px;
-padding: 20px;
-border-radius: 10px;
-margin-top: 20px;
-
-}
-.historico {
-  border: 1px solid black;
-  display: flex;
-  justify-content: center;
-  height: 400px;
-  width: 600px;
-  margin-right: 30px;
-
-}
 .graph {
   width: 70%;
   margin: auto;
@@ -500,3 +482,4 @@ canvas {
   cursor: pointer;
   margin-top: 40px;
 }
+

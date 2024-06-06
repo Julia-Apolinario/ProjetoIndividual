@@ -2,6 +2,7 @@
 function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
+    var fk_usuario = sessionStorage.ID_USUARIO;
     var album = sessionStorage.ALBUM_USUARIO;
     var b_usuario = document.getElementById("b_usuario");
     var b_album = document.getElementById("b_album");

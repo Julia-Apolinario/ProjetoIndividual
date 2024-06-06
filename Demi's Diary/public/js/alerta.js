@@ -1,17 +1,17 @@
 var alertas = [];
 
-function obterdados(idAquario) {
-    fetch(`/medidas/tempo-real/${idAquario}`)
+function obterdados(id_usuario) {
+    fetch(`/medidas/tempo-real/${id_usuario}`)
         .then(resposta => {
             if (resposta.status == 200) {
                 resposta.json().then(resposta => {
 
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
-                    alertar(resposta, idAquario);
+                    alertar(resposta, id_usuario);
                 });
             } else {
-                console.error(`Nenhum dado encontrado para o id ${idAquario} ou erro na API`);
+                console.error(`Nenhum dado encontrado para o id ${id_usuario} ou erro na API`);
             }
         })
         .catch(function (error) {
@@ -20,7 +20,7 @@ function obterdados(idAquario) {
 
 }
 
-function alertar(resposta, idAquario) {
+function alertar(resposta, id_usuario) {
     var temp = resposta[0].temperatura;
 
     var grauDeAviso = '';
@@ -66,7 +66,7 @@ function alertar(resposta, idAquario) {
 
     var card;
 
-    if (document.getElementById(`temp_aquario_${idAquario}`) != null) {
+if (document.getElementById(`temp_aquario_${idUsuario}`) != null) {
         document.getElementById(`temp_aquario_${idAquario}`).innerHTML = temp + "°C";
     }
 
@@ -104,7 +104,7 @@ function exibirCards() {
 
 function transformarEmDiv({ idAquario, temp, grauDeAviso, grauDeAvisoCor }) {
 
-    var descricao = JSON.parse(sessionStorage.AQUARIOS).find(item => item.id == idAquario).descricao;
+    var descricao = JSON.parse(sessionStorage.PONTUACAO).find(item => item.id == idAquario).descricao;
     return `
     <div class="mensagem-alarme">
         <div class="informacao">
@@ -118,7 +118,7 @@ function transformarEmDiv({ idAquario, temp, grauDeAviso, grauDeAvisoCor }) {
 }
 
 function atualizacaoPeriodica() {
-    JSON.parse(sessionStorage.AQUARIOS).forEach(item => {
+    JSON.parse(sessionStorage.PONTUACAO).forEach(item => {
         obterdados(item.id)
     });
     setTimeout(atualizacaoPeriodica, 5000);

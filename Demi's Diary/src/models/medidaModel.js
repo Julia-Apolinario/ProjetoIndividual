@@ -1,35 +1,80 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idAquario, limite_linhas) {
+function buscarUltimasMedidas(fk_usuario) {
 
-    var instrucaoSql = `SELECT 
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,
-                        momento,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico
-                    FROM medida
-                    WHERE fk_aquario = ${idAquario}
-                    ORDER BY id DESC LIMIT ${limite_linhas}`;
+    var instrucaoSql = `
+    SELECT nota FROM pontuacao  WHERE fk_usuario = ${fk_usuario}
+    `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idAquario) {
+function maximoMinimo(fk_usuario) {
 
-    var instrucaoSql = `SELECT 
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
-                        fk_aquario 
-                        FROM medida WHERE fk_aquario = ${idAquario} 
-                    ORDER BY id DESC LIMIT 1`;
+    var instrucaoSql = `
+    SELECT max(nota) as MaiorNota,min(nota) as MenorNota FROM pontuacao WHERE fk_usuario = ${fk_usuario}
+    `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+
+
+function medianota(fk_usuario){
+    var instrucaoSql = `
+    SELECT ROUND(AVG(nota), 2) AS mediaPontuacao
+FROM pontuacao WHERE fk_usuario = ${fk_usuario}
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+
+}
+
+function ultimaPont(fk_usuario){
+   
+    var instrucaoSql = `
+    SELECT nota AS UltimaPontuacao 
+    FROM pontuacao 
+    WHERE data_hora <= CURRENT_TIMESTAMP 
+    AND fk_usuario = ${fk_usuario}
+    ORDER BY data_hora DESC 
+    LIMIT 1;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+
+}
+
+function ultimaRodada(fk_usuario){
+   
+    var instrucaoSql = `
+    SELECT data_hora,DATE_FORMAT(data_hora, '%d/%m/%y') AS ultima_rodada FROM pontuacao WHERE fk_usuario = ${fk_usuario} ORDER BY data_hora DESC
+    LIMIT 1;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+
+}
+
+function buscarAlbum() {
+    
+    var instrucaoSql = `
+    SELECT COUNT(u.idusuario) AS NumeroUsuarios
+    FROM album p
+    LEFT JOIN usuario u ON p.idalbum = u.fk_album
+    GROUP BY p.idalbum, p.nome;
+    `
+    console.log("Executando album")
+    return database.executar(instrucaoSql);
+}
+
 
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    maximoMinimo,
+    medianota,
+    ultimaPont,
+    ultimaRodada,
+    buscarAlbum
 }

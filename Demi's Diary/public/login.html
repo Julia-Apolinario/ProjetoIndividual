@@ -7,69 +7,6 @@
     <title>Demi's Diary || Cadastro</title>
     <link rel="stylesheet" href="style.css">
     <script src="./js/sessao.js"></script>
-    <style>
-        header {
-            display: flex;
-            height: 60px;
-        }
-
-        .cadastro {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .containerlogin {
-            width: 990px;
-            display: flex;
-            justify-content: space-between;
-            ;
-
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            margin-top: 55px;
-            width: 200px;
-        }
-
-        .imagemLogo {
-            width: 200px;
-        }
-
-        nav ul{
-            display: flex;
-        }
-
-        nav li {
-            list-style: none;
-
-        }
-
-        nav ul {
-            display: flex;
-        }
-
-        nav a {
-            display: flex;
-            padding: 15px;
-            text-decoration: none;
-            color: #000000;
-        }
-
-        nav .active a,
-        nav a:hover {
-            background-color: #000000;
-            color: #ffffff;
-        }
-
-        .menu {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
 </header>
 
 <body id="Bodylogin">
@@ -83,7 +20,6 @@
                 <nav>
                     <ul>
                         <li><a href="index.html">Início</a></li>
-                        <li><a href="bibliografia.html">Sobre</a></li>
                         <li class="active"><a href="login.html">Login</a></li>
                         <li><a href="cadastro.html">Cadastro</a></li>
                     </ul>
@@ -118,13 +54,7 @@
                 <div id="div_erros_login"></div>
             </div>
         </div>
-        <!--INÍCIO FOOTER-->
-        <footer id="footercadastro">
-            <p>2024 Júlia Apolinario. Todos os direitos reservados.</p>
-        </footer>
-
 </body>
-
 </html>
 <script>
 
@@ -168,7 +98,7 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.idUsuario;
-                    sessionStorage.ALBUM_USUARIO = json.album;
+                    sessionStorage.ALBUM_USUARIO = json.fk_album;
                   //  sessionStorage.CPF_USUARIO = json.cpf;
 
                     //mudei para a pagina de quiz

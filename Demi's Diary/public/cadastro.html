@@ -7,63 +7,10 @@
     <title>Demi's Diary || Cadastro</title>
     <link rel="stylesheet" href="style.css">
     <script src="./js/sessao.js"></script>
-    <style>
-header{
-    display: flex;
-    height: 60px;
-}
-.cadastro{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.containercadastro{
-    width: 990px;
-    display: flex;
-    justify-content: space-between;;
-
-}
-
-.logo{
-    display: flex;
-    align-items: center;
-    margin-top: 55px;
-}
-
-.imagemLogo{
-    width: 200px;
-}
-
-nav ul, nav li{
-    list-style: none;
-
-}
-
-nav ul{
-    display: flex;
-}
-
-nav a{
-    padding: 15px;
-    text-decoration: none;
-    color: #000000;
-}
-
-nav .active a, nav a:hover{
-    background-color: #000000;
-    color: #ffffff;
-}
-
-.menu{
-    display: flex;
-    align-items: center;
-}
-    </style>
-
+    </head>
 <body id="Bodycadastro" onload="listar()">
     <!--INÍCIO HEADER-->
-    <header>
+    <header class="headercadastro">
         <div class="containercadastro">
             <div class="logo">
                 <a href="index.html"><img src="img/logo.png" class="imagemLogo"></a>
@@ -72,7 +19,6 @@ nav .active a, nav a:hover{
                 <nav>
                     <ul>
                         <li><a href="index.html">Início</a></li>
-                        <li><a href="bibliografia.html">Sobre</a></li>
                         <li><a href="login.html">Login</a></li>
                         <li class="active"><a href="cadastro.html">Cadastro</a></li>
                     </ul>
@@ -120,11 +66,6 @@ nav .active a, nav a:hover{
                   <div id="div_erros_login"></div>
         </div>
     </div>
-    <!--INÍCIO FOOTER-->
-    <footer class="footer">
-        <p>2024 Júlia Apolinario. Todos os direitos reservados.</p>
-    </footer>
-
 </body>
 
 </html>
@@ -144,7 +85,7 @@ nav .active a, nav a:hover{
       if (
         nomeVar.length <= 1
       ) {
-        cardErro.style.display = "block";
+        cardErro.style.display = "flex";
         mensagem_erro.innerHTML += `O nome tem de ter mais de 1 caractere.`;
   
         finalizarAguardar();
@@ -152,7 +93,7 @@ nav .active a, nav a:hover{
       } else if (
         arrobaVar == -1 || pontoVar == -1
       ) {
-        cardErro.style.display = "block";
+        cardErro.style.display = "flex";
         mensagem_erro.innerHTML = `O E-Mail tem de ter @ e ponto.`;
   
         finalizarAguardar();
@@ -160,7 +101,7 @@ nav .active a, nav a:hover{
       } else if (
         senhaVar.length <= 6
       ) {
-        cardErro.style.display = "block";
+        cardErro.style.display = "flex";
         mensagem_erro.innerHTML = `A senha tem de ter mais de 6 caracteres.`;
   
         finalizarAguardar();
@@ -168,7 +109,7 @@ nav .active a, nav a:hover{
       } else if (
         confirmacaoSenhaVar != senhaVar
       ) {
-        cardErro.style.display = "block";
+        cardErro.style.display = "flex";
         mensagem_erro.innerHTML = `A confirmação de senha tem de ser igual a senha.`;
   
         finalizarAguardar();
@@ -179,13 +120,17 @@ nav .active a, nav a:hover{
         senhaVar == "" ||
         confirmacaoSenhaVar == ""
       ) {
-        cardErro.style.display = "block";
+        cardErro.style.display = "flex";
         mensagem_erro.innerHTML =
           "(Mensagem de erro para todos os campos em branco)";
   
         finalizarAguardar();
         return false;
-      } else {
+      } else if(albumVar == ""){
+        cardErro.style.display = "flex";
+        mensagem_erro.innerHTML =
+          "(Selecione um Álbum para continuar)";
+      }else {
         setInterval(sumirMensagem, 5000);
       }
   

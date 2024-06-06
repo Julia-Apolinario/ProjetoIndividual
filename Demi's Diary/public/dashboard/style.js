@@ -100,23 +100,23 @@ function verificar(selected) {
             selectedElement.classList.remove('correto');
             selectedElement.classList.remove('errado');
             corretaElement.classList.remove('correto');
-            pontos = 0;
-            // setTimeout(() => {
-            //     window.location = "dashboard.html";
-            //   }, "3000");
+             
         }
     }, 1000);
 }
 
 function cadastrarNota() {
     // Enviando o valor da nova input
+    var id_usuario = sessionStorage.ID_USUARIO;
+
     fetch("/pontuacao/cadastrarNota", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            NotaServer: pontos
+            NotaServer: pontos,
+            UsuarioServer: id_usuario
         }),
     })
     .then(response => {
@@ -131,4 +131,8 @@ function cadastrarNota() {
     .catch(error => {
         console.error('Erro ao cadastrar a nota:', error);
     });
+
+    setTimeout(() => {
+        window.location = "dashboard.html";
+      }, "3000");
 }
