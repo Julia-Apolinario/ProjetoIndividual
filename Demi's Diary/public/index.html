@@ -113,14 +113,13 @@
         </section>
         <center>
         <section style="margin-top: 90px;">
-            <h2>Você Vs Demi Lovato:</h2> 
-            <p>Ano Do Seu Nascimento: <input type="text" id="input_nascimento"></p>
-            <p>Cor Favorita: <input type="text" id="input_cor"></p>
-            <p>Onde Você Mora? <input type="text" id="input_mora"></p>
-            <button onclick="comparar()">Comparar</button>
-            <div id="div_mensagem"></div>
-
+            <h1>Calculadora de Tempo de Audição de Demi Lovato</h1>
+            <p>Informe quantas músicas da Demi Lovato você ouviu:</p>
+            <input type="number" id="input_musica">
+            <button onclick="calcularTempo()">Calcular</button>
+            <p id="resultado"></p>
         </section>
+
     </center>
         <div id="chamaraqui" style="margin-top: 90px;" class="grafico">
             <h1>Ranking De Popularidade:</h1>
@@ -206,31 +205,43 @@
     <!-- SCRIPTS -->
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        buscarAlbum();
-    });
-    function comparar() {
-            var local = document.getElementById('input_mora').value;
-            var nasc = document.getElementById('input_nascimento').value;
-            var cor = document.getElementById('input_cor').value;
-            var diferenca = 1992 - nasc;
-            var diferenca2 = nasc - 1992;
-            var divMensagem = document.getElementById('div_mensagem');
 
-            if(local == "" || nasc == "" || cor == 0){
-                alert("Preencha Todos Os Campos");
-            }else if(nasc < 1992 ){
-            divMensagem.innerHTML = `
-            A sua cor favorita é ${cor}, a da Demi é Branco.<br>
-            Você mora em ${local}, Demi mora em Los Angeles.<br>
-            Você nasceu no ano de ${nasc}, a Demi nasceu no ano de 1992, vocês têm ${diferenca} anos de diferença.`;
-           }else if (nasc > 1992) {
-            divMensagem.innerHTML = `
-            A sua cor favorita é ${cor}, a da Demi é Branco.<br>
-            Você mora em ${local}, Demi mora em Los Angeles.<br>
-            Você nasceu no ano de ${nasc}, a Demi nasceu no ano de 1992, vocês têm ${diferenca2} anos de diferença.`;
-            } 
-        }
+
+function calcularTempo() {
+    var numeroMusicas = Number(input_musica.value);
+    var duracaoMusicaSegundos = 2 * 60 + 30; // 2 minutos e 30 segundos
+    var tempoTotalSegundos = numeroMusicas * duracaoMusicaSegundos;
+
+    var horas = Math.floor(tempoTotalSegundos / 3600);
+    var minutos = Math.floor((tempoTotalSegundos % 3600) / 60);
+    var segundos = tempoTotalSegundos % 60;
+
+    var resultado = '';
+
+    if (isNaN(numeroMusicas) || numeroMusicas == "") {
+        alert("Coloque um valor válido para continuar!");
+        return;
+    }
+
+    if (horas >= 1) {
+        resultado += horas + ' hora(s), ';
+    }
+    if (minutos >= 1) {
+        resultado += minutos + ' minuto(s) e ';
+    }
+    resultado += segundos + ' segundo(s).';
+
+    document.getElementById('resultado').textContent = 'Você passou ' + resultado + ' ouvindo músicas da Demi Lovato.';
+}
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    buscarAlbum();
+});
+
+   
+
+
 
     function buscarAlbum() {
         fetch(`/medidas/buscarAlbum`, { cache: 'no-store' })

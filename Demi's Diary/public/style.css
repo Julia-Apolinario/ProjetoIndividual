@@ -293,6 +293,16 @@ button{
 input::placeholder {
     color: #000000;  
 }
+.comparacao input{
+    margin: 13px;
+    width: 200px;
+    padding: 9px 15px;
+    border: 2px solid #000000;
+    border-radius: 30px;
+    background: transparent;
+    color: rgb(0, 0, 0);
+
+}
 
 .campo input{
     margin: 13px;
